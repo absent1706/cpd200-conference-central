@@ -48,12 +48,12 @@ OPERATORS = {
                 'NE':   '!='
                 }
 
-    FIELDS =    {
-                'CITY': 'city',
-                'TOPIC': 'topics',
-                'MONTH': 'month',
-                'MAX_ATTENDEES': 'maxAttendees',
-                }
+FIELDS =    {
+            'CITY': 'city',
+            'TOPIC': 'topics',
+            'MONTH': 'month',
+            'MAX_ATTENDEES': 'maxAttendees',
+            }
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
@@ -148,7 +148,7 @@ class ConferenceApi(remote.Service):
                 name='queryConferences')
     def queryConferences(self, request):
         """Query for conferences."""
-        conferences = Conference.query()
+        conferences = self._getQuery(request)
 
          # return individual ConferenceForm object per Conference
         return ConferenceForms(
